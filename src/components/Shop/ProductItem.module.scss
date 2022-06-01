@@ -1,0 +1,29 @@
+@use "../../abstracts/variables" as *;
+
+.item {
+     margin: 0.5rem 0;
+
+     font-size: 1.25rem;
+
+     color: $text-black-color;
+
+     header {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+
+          .price {
+               padding: 0.15rem 1.5rem;
+
+               border-radius: 30px;
+
+               background-color: $bg-primary-black;
+               color: $text-color;
+               font-size: 1.5rem;
+          }
+     }
+
+     .actions {
+          text-align: end;
+     }
+}

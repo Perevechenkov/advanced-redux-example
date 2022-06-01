@@ -21,8 +21,8 @@ button {
   border: 1px solid $bg-primary-blue;
   border-radius: 6px;
 
-  background-color: $bg-primary-blue;
-  color: $text-color;
+  background-color: transparent;
+  color: $text-blue-color;
   font: inherit;
   cursor: pointer;
 
@@ -30,5 +30,6 @@ button {
   &:active {
     background-color: $bg-primary-blue-hover;
     border-color: $bg-primary-blue-hover;
+    color: $text-color;
   }
 }
