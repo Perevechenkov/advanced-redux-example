@@ -1,0 +1,12 @@
+@use "../../abstracts/variables" as *;
+
+.card {
+     width: 90%;
+     max-width: 40rem;
+     margin: 1rem auto;
+     padding: 1rem;
+
+     border-radius: 6px;
+
+     background-color: $bg-primary-light;
+}

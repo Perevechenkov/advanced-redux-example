@@ -1,0 +1,62 @@
+@use "../../abstracts/variables" as *;
+
+.item {
+     margin: 1rem 0;
+     padding: 1rem;
+
+     background-color: $bg-primary-dark;
+
+     h3 {
+          margin: 0;
+          margin-bottom: 0.5rem;
+
+          font-size: 1.75rem;
+     }
+
+     header {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+
+          .price {
+               font-size: 1.5rem;
+               font-weight: bold;
+
+               .itemprice {
+                    font-size: 1rem;
+                    font-weight: normal;
+                    font-style: italic;
+               }
+          }
+     }
+
+     .details {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .quantity {
+               span {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+               }
+          }
+          .actions {
+               margin: 0.5rem 0;
+
+               button {
+                    margin-left: 0.5rem;
+                    padding: 0.15rem 1rem;
+
+                    border: 1px solid $border-light-opace;
+
+                    background-color: transparent;
+
+                    &:hover,
+                    &:active {
+                         background-color: $bg-primary-dark-hover;
+                    }
+               }
+          }
+     }
+}

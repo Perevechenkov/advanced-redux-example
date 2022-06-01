@@ -1,0 +1,20 @@
+@use "../../abstracts/variables" as *;
+
+.cart {
+     max-width: 30rem;
+
+     background-color: $bg-primary-black;
+
+     h2 {
+          margin: 0.5rem 0;
+
+          font-size: 1.25rem;
+     }
+
+     ul {
+          margin: 0;
+          padding: 0;
+
+          list-style: none;
+     }
+}
