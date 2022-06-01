@@ -1,0 +1,25 @@
+@use "../../abstracts/variables" as *;
+
+.button {
+     border-color: $bg-primary-green;
+     background-color: transparent;
+     color: $bg-primary-green;
+
+     &:hover,
+     &:active {
+          color: $text-color;
+     }
+
+     span {
+          margin: 0 0.5rem;
+     }
+
+     .badge {
+          padding: 0.15rem 1.25rem;
+
+          border-radius: 30px;
+
+          background-color: $bg-primary-green;
+          color: $text-black-color;
+     }
+}
