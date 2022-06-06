@@ -13,7 +13,6 @@ export default function ProductItem(props) {
         id,
         title,
         price,
-        description,
       })
     );
   };
