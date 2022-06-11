@@ -6,6 +6,8 @@ import Products from './components/Shop/Products';
 import Notification from './components/UI/Notification';
 import { showNotification } from './store/ui-slice';
 
+let isInitialRender = true;
+
 function App() {
   const cartIsVisible = useSelector(state => state.ui.cartIsVisible);
   const cart = useSelector(state => state.cart);
@@ -14,6 +16,11 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (isInitialRender) {
+      isInitialRender = false;
+      return;
+    }
+
     const sendCartData = async () => {
       dispatch(
         showNotification({

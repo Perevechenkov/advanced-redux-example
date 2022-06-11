@@ -9,7 +9,7 @@ export default function Notification(props) {
   if (status === 'success') specialClasses = classes.success;
 
   const scssClasses = `${classes.notification} ${specialClasses}`;
-  console.log(specialClasses);
+
   return (
     <section className={scssClasses}>
       <h2>{title}</h2>
