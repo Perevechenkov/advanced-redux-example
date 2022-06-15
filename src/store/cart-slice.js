@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { showNotification } from './ui-slice';
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -38,51 +37,12 @@ const cartSlice = createSlice({
         existingItem.totalPrice -= existingItem.price;
       }
     },
+    replaceCart(state, action) {
+      state.items = action.payload.items;
+      state.totalQuantity = action.payload.totalQuantity;
+    },
   },
 });
-
-export const sendCartData = cart => {
-  return async dispatch => {
-    dispatch(
-      showNotification({
-        status: 'pending',
-        title: 'Sending',
-        message: 'sending cart data',
-      })
-    );
-
-    const sendRequest = async () => {
-      const response = await fetch(
-        'https://movies-dummy-db-default-rtdb.europe-west1.firebasedatabase.app/cart.json',
-        { method: 'PUT', body: JSON.stringify(cart) }
-      );
-
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-    };
-
-    try {
-      await sendRequest();
-
-      dispatch(
-        showNotification({
-          status: 'success',
-          title: 'Success',
-          message: 'Sent cart data successfully',
-        })
-      );
-    } catch (err) {
-      dispatch(
-        showNotification({
-          status: 'error',
-          title: err.message,
-          message: 'Sending cart data failed',
-        })
-      );
-    }
-  };
-};
 
 export const { addItem, removeItem, replaceCart } = cartSlice.actions;
 
