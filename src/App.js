@@ -4,7 +4,7 @@ import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 import Notification from './components/UI/Notification';
-import { showNotification } from './store/ui-slice';
+import { sendCartData } from './store/cart-slice';
 
 let isInitialRender = true;
 
@@ -21,42 +21,7 @@ function App() {
       return;
     }
 
-    const sendCartData = async () => {
-      dispatch(
-        showNotification({
-          status: 'pending',
-          title: 'Sending',
-          message: 'sending cart data',
-        })
-      );
-
-      const response = await fetch(
-        'https://movies-dummy-db-default-rtdb.europe-west1.firebasedatabase.app/cart.json',
-        { method: 'PUT', body: JSON.stringify(cart) }
-      );
-
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-
-      dispatch(
-        showNotification({
-          status: 'success',
-          title: 'Success',
-          message: 'Sent cart data successfully',
-        })
-      );
-    };
-
-    sendCartData().catch(err => {
-      dispatch(
-        showNotification({
-          status: 'error',
-          title: err.message,
-          message: 'Sending cart data failed',
-        })
-      );
-    });
+    dispatch(sendCartData(cart));
   }, [cart, dispatch]);
 
   return (
